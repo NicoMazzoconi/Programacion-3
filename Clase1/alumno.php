@@ -1,13 +1,13 @@
 <?php
-class Alumno
+include_once "persona.php";
+class Alumno extends Persona
 {
-	public $nombre;
-	public $edad;
+	public $legajo;
 
-	public function __construct($nombre = NULL, $edad = NULL)
+	public function __construct($nombre = NULL, $edad = NULL, $dni = NULL, $legajo = NULL)
 	{
-		$this -> nombre = $nombre;
-		$this -> edad = $edad;
+		parent::__construct($dni, $nombre, $edad);
+		$this -> legajo = $legajo;
 	}
 
 	public function retornarJSon()
