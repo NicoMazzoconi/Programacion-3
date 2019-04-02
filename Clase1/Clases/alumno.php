@@ -3,11 +3,13 @@ include_once "/../Clases/persona.php";
 class Alumno extends Persona
 {
 	public $legajo;
+	public $imagen;
 
-	public function __construct($nombre = NULL, $edad = NULL, $dni = NULL, $legajo = NULL)
+	public function __construct($nombre = NULL, $edad = NULL, $dni = NULL, $legajo = NULL, $imagen = NULL)
 	{
 		parent::__construct($dni, $nombre, $edad);
 		$this -> legajo = $legajo;
+		$this -> imagen = $imagen;
 	}
 
 	public function retornarJSon()
@@ -17,7 +19,7 @@ class Alumno extends Persona
 
 	public function guardarAlumno()
 	{
-		$fichero = "..\Archivos\alumnos.txt";
+		$fichero = "./Archivos/alumnos.txt";
 		$actual = $this -> retornarJSon();
 		if(file_exists($fichero))
 		{
@@ -31,7 +33,7 @@ class Alumno extends Persona
 
 	public function leerAlumno()
 	{
-		$fichero = "..\Archivos\alumnos.txt";
+		$fichero = "./Archivos/alumnos.txt";
 		if(file_exists($fichero))
 		{
 			$gestor = @fopen($fichero, "r");
@@ -42,13 +44,13 @@ class Alumno extends Persona
         		$arrayAlumnos[$i] = json_decode($bufer, true);
         		$i++;
            	}
-		}
-    	if (!feof($gestor)) 
-    	{
-       	 	echo "Error: fallo inesperado de fgets()\n";
-    	}
-    	fclose($gestor);
-    	return $arrayAlumnos;
+           	return $arrayAlumnos;
+           	if (!feof($gestor)) 
+    		{
+       	 		echo "Error: fallo inesperado de fgets()\n";
+    		}			
+    		fclose($gestor);
+		}   	
 	}
 }
 ?>

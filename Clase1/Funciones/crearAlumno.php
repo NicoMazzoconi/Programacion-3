@@ -1,45 +1,17 @@
 <?php
-echo "GET<br>";
-var_dump($_GET);
-
-echo "<br> <br>POST<br>";
-var_dump($_POST);
-if (isset($_POST["apellido"])) 
-{
-	$apellido = $_POST["apellido"];
-	echo " <br> $apellido";
-}
-if (isset($_POST["nombre"])) 
-{
-	$nombre = $_POST["nombre"];
-	echo " <br> $nombre";
-}
-if (isset($_POST["edad"])) 
-{
-	$edad = $_POST["edad"];
-	echo " <br> $edad";
-}
-
-if (isset($_POST["legajo"]))
-{
-	$legajo = $_POST["legajo"];
-	echo " <br> $legajo";
-}
-
-echo "<br> <br>REQUEST<br>";
-var_dump($_REQUEST);	
-
 include_once "/../Clases/alumno.php";
+include_once "Funciones/guardarFoto.php";
 
-if(isset($_GET["nombre"]) || isset($_GET["edad"]) || isset($_GET["apellido"]) || isset($_GET["legajo"]))
+if(isset($_FILES) || isset($_POST["nombre"]) || isset($_POST["edad"]) || isset($_POST["dni"]) || isset($_POST["legajo"]))
 {
-	$miClase = new Alumno($_GET["nombre"], $_GET["edad"], $_GET["apellido"], $_GET["legajo"]);
-	echo "<br><br> JSon alumno creado<br>";
-	echo $miClase -> retornarJSon();
-	$miClase -> guardarAlumno();
+		if(guardarFoto($_FILES, $_POST))
+			echo "Foto guardada";
 
-	echo "<br><br> Datos leido del archivo guardado<br>";
-
-	var_dump($miClase -> leerAlumno());
+		$explode = explode(".", $_FILES["imagen"]["name"]);
+		$tam = count($explode) - 1;
+		$miClase = new Alumno($_POST["nombre"], $_POST["edad"], $_POST["dni"], $_POST["legajo"], $_POST["legajo"]."-".$_POST["nombre"].$explode[$tam]);
+		echo "<br><br> JSon alumno creado<br>";
+		echo $miClase -> retornarJSon();
+		$miClase -> guardarAlumno();
 }
 ?>

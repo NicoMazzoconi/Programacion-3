@@ -18,5 +18,4 @@ switch($data)
 		require_once "Funciones/modificarAlumno.php";
 	break;
 }
-
 ?>

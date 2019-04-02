@@ -1,1 +1,13 @@
-{"legajo":"569874","dni":"perez","nombre":"pedro","edad":"35"}
+{"legajo":"107308","imagen":"107308-nico.jpg","dni":"38364000","nombre":"nico","edad":"24"}
+{"legajo":"789456","imagen":"789456-pablo.jpg","dni":"354123695","nombre":"pablo","edad":"25"}
+{"legajo":"547896","imagen":"547896-Giuliano.jpg","dni":"98654123","nombre":"Giuliano","edad":"28"}
+{"legajo":"555632","imagen":"555632-Fabian.jpg","dni":"99999999","nombre":"Fabian","edad":"99"}
+{"legajo":"1122326","imagen":"1122326-Santiago.jpg","dni":"55478965","nombre":"Santiago","edad":"50"}
+{"legajo":"4421","imagen":"4421-gastonjpg","dni":"554412","nombre":"gaston","edad":"35"}
+{"legajo":"4421","imagen":"4421-gastonjpg","dni":"554412","nombre":"gaston","edad":"35"}
+{"legajo":"4421","imagen":"4421-gastonjpg","dni":"554412","nombre":"gaston","edad":"35"}
+{"legajo":"4421","imagen":"4421-gastonjpg","dni":"554412","nombre":"gaston","edad":"35"}
+{"legajo":"4421","imagen":"4421-gastonjpg","dni":"554412","nombre":"gaston","edad":"35"}
+{"legajo":"4421","imagen":"4421-gastonjpg","dni":"554412","nombre":"gaston","edad":"35"}
+{"legajo":"4421","imagen":"4421-gastonjpg","dni":"554412","nombre":"gaston","edad":"35"}
+{"legajo":"4421","imagen":"4421-gastonjpg","dni":"554412","nombre":"gaston","edad":"35"}
