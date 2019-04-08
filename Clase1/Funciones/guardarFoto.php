@@ -1,5 +1,5 @@
 <?php 
-include_once "Funciones/agregarMdA.php";
+include_once "./Funciones/agregarMdA.php";
 function guardarFoto($file, $post)
 {
 	$dic = "./Fotos/";

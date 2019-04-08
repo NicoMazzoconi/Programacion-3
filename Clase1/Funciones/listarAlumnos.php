@@ -1,5 +1,5 @@
 <?php 
-include_once "/../Clases/alumno.php";
+include_once "./Clases/alumno.php";
 $listaAlumnos = new alumno();
 
 $nombre;

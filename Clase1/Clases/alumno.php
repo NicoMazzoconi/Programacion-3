@@ -1,5 +1,5 @@
 <?php
-include_once "/../Clases/persona.php";
+include_once "./Clases/persona.php";
 class Alumno extends Persona
 {
 	public $legajo;
@@ -29,6 +29,31 @@ class Alumno extends Persona
 		{
 			file_put_contents($fichero, $actual.="\r\n");
 		}
+		/* debe recibir alumno
+		if(file_exists($archivo))
+		{
+			$archivo = fopen("./Archivos/alumnos.txt", "a");//escribe y mantiene la informacion existente		 
+		}else
+		{
+			$archivo = fopen("./Archivos/alumnos.txt", "w");//escribe y mantiene la informacion existente		 
+		}
+		
+		$renglon = $alumno => retornarJSon().="\r\n";
+		fwrite($archivo, $renglon); 		 
+		fclose($archivo);
+		*/
+	}
+
+	public static function guardarAlumnosArray($array)
+	{
+		$archivo=fopen("./Archivos/alumnos.txt", "w"); 	
+		foreach ($listado as $value) 
+		{
+	 		$dato=$value -> retornarJSon();
+	 		$dato.="\r\n";
+			fwrite($archivo, $dato);
+		}
+		fclose($archivo);
 	}
 
 	public function leerAlumno()
@@ -51,6 +76,22 @@ class Alumno extends Persona
     		}			
     		fclose($gestor);
 		}   	
+	}
+
+	public function buscarAlumnoLegajo($legajo)
+	{
+		$array = $this -> leerAlumno();
+		foreach ($array as $value) {
+			foreach ($value as $key => $dato) {
+				if($key == "legajo" && $dato == $legajo)
+				{
+					unset($array[$value]);
+					guardarAlumnosArray($array);
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }
 ?>

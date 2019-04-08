@@ -1,5 +1,5 @@
 <?php
-include_once "/../Clases/alumno.php";
+include_once "./Clases/alumno.php";
 include_once "Funciones/guardarFoto.php";
 
 if(isset($_FILES) || isset($_POST["nombre"]) || isset($_POST["edad"]) || isset($_POST["dni"]) || isset($_POST["legajo"]))

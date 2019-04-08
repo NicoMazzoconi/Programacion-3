@@ -1,5 +1,5 @@
 <?php
-include_once "/../Clases/humano.php";
+include_once "./Clases/humano.php";
 class Persona extends Humano
 {
 	public $dni;
