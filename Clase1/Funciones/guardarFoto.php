@@ -28,7 +28,7 @@ function guardarFoto($file, $post)
 		copy($dic, $dicBackup);
 		return move_uploaded_file($_FILES["imagen"]["tmp_name"], $dic);
 	}
-	
 	agregarMarcaDeAgua($dic);
+	
 }
  ?>

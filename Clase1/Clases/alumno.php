@@ -56,7 +56,7 @@ class Alumno extends Persona
 		fclose($archivo);
 	}
 
-	public function leerAlumno()
+	public static function leerAlumno()
 	{
 		$fichero = "./Archivos/alumnos.txt";
 		if(file_exists($fichero))
@@ -78,18 +78,12 @@ class Alumno extends Persona
 		}   	
 	}
 
-	public function buscarAlumnoLegajo($legajo)
+	public static function buscarAlumnoLegajo($legajo)
 	{
-		$array = $this -> leerAlumno();
+		$array = Alumno::leerAlumno();
 		foreach ($array as $value) {
-			foreach ($value as $key => $dato) {
-				if($key == "legajo" && $dato == $legajo)
-				{
-					unset($array[$value]);
-					guardarAlumnosArray($array);
-					return true;
-				}
-			}
+			if($value["legajo"] == $legajo)
+				return true;
 		}
 		return false;
 	}
