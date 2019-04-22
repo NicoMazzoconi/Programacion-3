@@ -1,11 +1,19 @@
 <?php
 include_once "./Clases/persona.php";
+include_once "./Clases/alumnoDAO.php";
 class Alumno extends Persona
 {
 	public $legajo;
 	public $imagen;
 
-	public function __construct($nombre = NULL, $edad = NULL, $dni = NULL, $legajo = NULL, $imagen = NULL)
+	/*public function __construct($nombre = NULL, $edad = NULL, $dni = NULL, $legajo = NULL, $imagen = NULL)
+	{
+		parent::__construct($dni, $nombre, $edad);
+		$this -> legajo = $legajo;
+		$this -> imagen = $imagen;
+	}*/
+
+	public function SimilConstruct($nombre = NULL, $edad = NULL, $dni = NULL, $legajo = NULL, $imagen = NULL)
 	{
 		parent::__construct($dni, $nombre, $edad);
 		$this -> legajo = $legajo;
@@ -69,12 +77,13 @@ class Alumno extends Persona
         		$arrayAlumnos[$i] = json_decode($bufer, true);
         		$i++;
            	}
-           	return $arrayAlumnos;
+           	
            	if (!feof($gestor)) 
     		{
        	 		echo "Error: fallo inesperado de fgets()\n";
     		}			
     		fclose($gestor);
+    		return $arrayAlumnos;
 		}   	
 	}
 
@@ -83,9 +92,66 @@ class Alumno extends Persona
 		$array = Alumno::leerAlumno();
 		foreach ($array as $value) {
 			if($value["legajo"] == $legajo)
-				return true;
+				return $value->retornarJSon();
 		}
 		return false;
 	}
+
+	public static function modificarAlumnoPorLegajo($arrayAlumno, $JSonAlumno)
+	{
+		$alumno = json_decode($JSonAlumno);
+		$legajo = $alumno -> legajo;
+		$datoViejo = Alumno::buscarAlumnoLegajo($legajo);
+		if($datoViejo != false)
+		{
+			$datoViejo = $JSonAlumno;
+			unset($arrayAlumno[$alumno]);
+		}
+		else
+		{
+			echo "No encontrado";
+		}
+	}
+
+	//funcion para consultas SQL------------------------------------------------------------------------------
+	public static function TraerAlumnos()
+	{
+		$objetoAccesoDato = AlumnoDAO::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("select `nombre`, `edad`, `dni`, `legajo`, `id` from alumnos");
+		$consulta->execute();			
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "alumno");	
+	}
+	public function InsertarAlumno()
+	{
+			$objetoAccesoDato = AlumnoDAO::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into alumnos (nombre,edad,dni, legajo)values('$this->nombre','$this->edad','$this->dni','$this->legajo')");
+			$consulta->execute();
+			return $objetoAccesoDato->RetornarUltimoIdInsertado();
+	}
+	public function ModificarAlumno()
+	{
+		$objetoAccesoDato = AlumnoDAO::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("
+				update alumnos 
+				set nombre='$this->nombre',
+				edad='$this->edad',
+				dni='$this->dni',
+				legajo='$this->legajo'
+				WHERE id='$this->id'");
+				//como obtengo el id
+		return $consulta->execute();
+	}
+	public static function BorrarAlumnoPorLegajo($legajo)
+	{
+		$objetoAccesoDato = AlumnoDAO::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("
+				delete 
+				from alumnos 				
+				WHERE legajo=:legajo");	
+		$consulta->bindValue(':legajo',$legajo, PDO::PARAM_INT);		
+		$consulta->execute();
+		return $consulta->rowCount();
+	}
+
 }
 ?>
