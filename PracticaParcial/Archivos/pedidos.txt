@@ -1,0 +1,2 @@
+{"id":"0","idProveedor":"0","producto":"Javon","cantidad":"5"}
+{"id":"1","idProveedor":"1","producto":"Leche","cantidad":"5"}
