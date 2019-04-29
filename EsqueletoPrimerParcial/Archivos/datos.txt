@@ -1,0 +1,6 @@
+{"id":"0","nombre":"nico","edad":"24","foto":"miFoto"}
+{"id":"1","nombre":"nico","edad":"24","foto":"miFoto"}
+{"id":"2","nombre":"nico","edad":"24","foto":"miFoto"}
+{"id":"3","nombre":"nico","edad":"24","foto":"miFoto"}
+{"id":"6","nombre":"nico","edad":"24","foto":"miFoto"}
+{"id":"7","nombre":"tefi","edad":"22","foto":".\/Fotos\/22-tefi.jpg"}
