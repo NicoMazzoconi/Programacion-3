@@ -5,6 +5,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require_once '../composer/vendor/autoload.php';
 require_once '/clases/AccesoDatos.php';
 require_once '/clases/usuario.php';
+require_once '/clases/usuarioApi.php';
 
 $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
@@ -80,13 +81,14 @@ $app->group('/usuario/{id:[0-9]+}', function () {
 /*LLAMADA A METODOS DE INSTANCIA DE UNA CLASE*/
 $app->group('/usuario', function () {   
 
-$this->get('/', \Usuario::class . ':traerTodos');
-$this->get('/{id}', \Usuario::class . ':traerUno');
-$this->delete('/', \Usuario::class . ':BorrarUno');
-$this->put('/', \Usuario::class . ':ModificarUno');
+$this->get('/', \usuarioApi::class . ':traerTodos');
+$this->get('/{id}', \usuarioApi::class . ':traerUno');
+$this->delete('/', \usuarioApi::class . ':BorrarUno');
+$this->put('/', \usuarioApi::class . ':ModificarUno');
+$this->post('/', \usuarioApi::class . ':CargarUno');
 //se puede tener funciones definidas
 /*SUBIDA DE ARCHIVO*/
-$this->post('/', function (Request $request, Response $response) {
+/*$this->post('/', function (Request $request, Response $response) {
   
     
     $ArrayDeParametros = $request->getParsedBody();
@@ -101,7 +103,7 @@ $this->post('/', function (Request $request, Response $response) {
 
     return $response;
 
-});  
+});  */
 });
 
 $app->post('/login/', function(Request $request, Response $response){
@@ -113,11 +115,12 @@ $app->post('/login/', function(Request $request, Response $response){
     $usuario = Usuario::Login($nombre, $password);
     if($usuario == false)
     {
-        echo "$usuarios";
+        echo "Datos incorrectos";
     }
     else
     {
-        echo true;
+        echo "Logeado: $usuario->nombre";
+        
     }
 });
 
