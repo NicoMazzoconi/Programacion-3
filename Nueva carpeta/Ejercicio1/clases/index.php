@@ -4,10 +4,8 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require_once '../composer/vendor/autoload.php';
 require_once '/clases/AccesoDatos.php';
+require_once '/clases/usuario.php';
 require_once '/clases/usuarioApi.php';
-require_once '/clases/AutentificadorJWT.php';
-require_once '/clases/MWparaCORS.php';
-require_once '/clases/MWparaAutentificar.php';
 
 $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
@@ -31,8 +29,8 @@ $app->group('/usuario', function () {
 
 $this->get('/', \usuarioApi::class . ':traerTodos');
 $this->get('/{id}', \usuarioApi::class . ':traerUno');
-$this->delete('/', \usuarioApi::class . ':BorrarUno')->add(\MWparaAutentificar::class . ':VerificarUsuario');
-$this->put('/', \usuarioApi::class . ':ModificarUno')->add(\MWparaAutentificar::class . ':VerificarUsuario');
+$this->delete('/', \usuarioApi::class . ':BorrarUno');
+$this->put('/', \usuarioApi::class . ':ModificarUno');
 $this->post('/', \usuarioApi::class . ':CargarUno');
 });
 

@@ -96,7 +96,7 @@ class Usuario
 			
 	}
 
-	public static function Login($nombre, $password)
+	public static function LoginCompare($nombre, $password)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("select id, nombre, password from usuarios where nombre = ? and password = ?");
