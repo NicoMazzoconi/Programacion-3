@@ -14,9 +14,21 @@ class compraApi implements IApiUsable
     public function TraerTodos($request, $response, $args)
     {
         $objDelaRespuesta= new stdclass();
-        $todos = compra::all();
-        $objDelaRespuesta->respuesta=$todos;
-        return $response->withJson($objDelaRespuesta, 200);
+        $idUsuario = $response->getHeader('id')[0];
+        if($idUsuario == -1)
+        {
+            $todos = compra::all();
+            $objDelaRespuesta->respuesta=$todos;
+            $response = $response->withJson($objDelaRespuesta, 200);
+        }
+        else
+        {
+            $algunos = compra::where('idUsuario','=', $idUsuario)->get();
+            $objDelaRespuesta->respuesta=$algunos;
+            $response = $response->withJson($objDelaRespuesta, 200);
+        }
+        return $response;
+       
     }
     public function CargarUno($request, $response, $args)
     {
@@ -25,10 +37,14 @@ class compraApi implements IApiUsable
         $ArrayDeParametros = $request->getParsedBody();
 
         $articulo= $ArrayDeParametros['articulo'];
-        $fecha= $ArrayDeParametros['fecha'];
         $precio= $ArrayDeParametros['precio'];
+        $fecha = new DateTime('now');
         
+        $headers = $response->getHeader('id');
+		$idUsuario = $headers[0];
+
         $miCompra = new compra();
+        $miCompra->idUsuario = $idUsuario;
         $miCompra->articulo=$articulo;
         $miCompra->fecha=$fecha;
         $miCompra->precio=$precio;

@@ -69,39 +69,49 @@ class MWparaAutentificar
 	public function VerificarLogeadoCompra($request, $response, $next)
 	{
 		$objDelaRespuesta= new stdclass();
-		$objDelaRespuesta->respuesta="";
-	   
+		
 		if($request->isPost())
 		{
-			$arrayConToken = $request->getHeader('token');
-			$token = $arrayConToken[0];
 			$objDelaRespuesta->esValido=true;
 
-			try 
+			if($request->hasHeader('token'))
 			{
-				AutentificadorJWT::verificarToken($token);
-				$objDelaRespuesta->esValido=true;      
-			}
-			catch (Exception $e) {      
-				$objDelaRespuesta->excepcion=$e->getMessage();
-				$objDelaRespuesta->esValido=false;     
-			}
+				$arrayConToken = $request->getHeader('token');
+				$token = $arrayConToken[0];
+				
+				try 
+				{
+					AutentificadorJWT::verificarToken($token);
+					$objDelaRespuesta->esValido=true;  
+				}
+				catch (Exception $e) {      
+					$objDelaRespuesta->excepcion=$e->getMessage();
+					$objDelaRespuesta->esValido=false;  
+					$objDelaRespuesta->respuesta = "Error en el token";
+				}
 
-			if($objDelaRespuesta->esValido)
-			{						
-				$response = $next($request, $response);   
+				if($objDelaRespuesta->esValido)
+				{						
+					$payload=AutentificadorJWT::ObtenerData($token);
+					if($payload->perfil=="admin")
+					{
+						$response = $response->withAddedHeader('id', $payload->id);
+						$response = $next($request, $response);
+					}          
+				}
+				else
+				{
+					$response = $response->withJson($objDelaRespuesta, 401);
+				}    
 			}
 			else
 			{
-				$objDelaRespuesta->respuesta="Solo usuarios registrados";
+				$objDelaRespuesta->respuesta = "Solo usuarios registrados";
+				$response = $response->withJson($objDelaRespuesta, 401);
 			}
 		}
-		if($objDelaRespuesta->respuesta!="")
-		{
-			$nueva=$response->withJson($objDelaRespuesta, 401);  
-			return $nueva;
-		}
-		return $response;
+
+		return $response;   
 	}
 
 	public function VerificarTraerCompra($request, $response, $next)
@@ -109,27 +119,51 @@ class MWparaAutentificar
 		$objDelaRespuesta= new stdclass();
 		$objDelaRespuesta->respuesta="";
 	   
-		if($request->isPost())
+		if($request->isGet())
 		{
-			$arrayConToken = $request->getHeader('token');
-			$token = $arrayConToken[0];
-			$objDelaRespuesta->esValido=true;
-
-			try 
+			
+			if($request->hasHeader('token'))
 			{
-				AutentificadorJWT::verificarToken($token);
-				$objDelaRespuesta->esValido=true;      
-			}
-			catch (Exception $e) {      
-				$objDelaRespuesta->excepcion=$e->getMessage();
-				$objDelaRespuesta->esValido=false;     
-			}
+				$arrayConToken = $request->getHeader('token');
+				$token = $arrayConToken[0];
+				$objDelaRespuesta->esValido=true;
+				try 
+				{
+					AutentificadorJWT::verificarToken($token);
+					$objDelaRespuesta->esValido=true;      
+				}
+				catch (Exception $e) {      
+					$objDelaRespuesta->excepcion=$e->getMessage();
+					$objDelaRespuesta->esValido=false;     
+				}
 
-			if($objDelaRespuesta->esValido)
+				if($objDelaRespuesta->esValido)
+				{
+					$payload = AutentificadorJWT::ObtenerData($token);
+					if($payload->perfil == "admin")
+					{
+						$response = $response->withAddedHeader('id', -1);
+						$response = $next($request, $response);
+					}
+					else
+					{
+						$response = $response->withAddedHeader('id', $payload->id);
+						$response = $next($request, $response);
+					}
+				}
+				else
+				{
+					$objDelaRespuesta->respuesta = "Token invalido";
+					$response = $response->withJson($objDelaRespuesta, 401);
+				}
+			}
+			else
 			{
-				$response = $next($request, $response);
-				
+				$objDelaRespuesta->respuesta = "Solo usuarios registrados";
+				$response = $response->withJson($objDelaRespuesta, 401);
 			}
 		}
+
+		return $response;
 	}
 }

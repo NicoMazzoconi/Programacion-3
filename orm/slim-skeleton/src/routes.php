@@ -9,6 +9,7 @@ require_once "../src/MWparaAutentificar.php";
 
 return function (App $app) {
     $container = $app->getContainer();
+    
     $app->group('/usuario', function(){
         $this->post('/', \usuarioApi::class . ':CargarUno');
         $this->get('/', \usuarioApi::class . ':TraerTodos')->add(\MWparaAutentificar::class . ':VerificarUsuarioTraer');
@@ -18,6 +19,6 @@ return function (App $app) {
 
     $app->group('/Compra', function(){
         $this->post('', \compraApi::class . ':CargarUno')->add(\MWparaAutentificar::class . ':VerificarLogeadoCompra');
-        $this->get('', \compraApi::class . ':TraerTodos');
+        $this->get('', \compraApi::class . ':TraerTodos')->add(\MWparaAutentificar::class . ':VerificarTraerCompra');
     });
 };  

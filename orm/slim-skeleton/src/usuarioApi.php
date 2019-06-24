@@ -63,7 +63,9 @@ class usuarioApi implements IApiUsable
         {
             if($usuarioLogin->password == $password && $usuarioLogin->sexo == $sexo)
             {
+                $id = $usuarioLogin->id;
                 $datos = array(
+                    'id'=>$id,
                     'nombre'=>$nombre,
                     'sexo'=>$sexo,
                     'perfil'=>$usuarioLogin->perfil
