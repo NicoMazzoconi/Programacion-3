@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "8b7865c2-8d6f-4ab5-aa22-551fe03db9a0",
+		"name": "Usuario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario Alta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "mazzoca",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "bartender",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:80/LaComanda/public/usuario/",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"usuario",
+						""
+					]
+				},
+				"description": "Usuario Alta"
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario Borrar/Suspender",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjMyOTc2MDIsImV4cCI6MTU2MzMwMTIwMiwiYXVkIjoiMTk5MTNmZWM4YjI0ZDk1Y2Y1NjE5Y2MwMzdkMTM1YTZlOTUzZWQzYyIsImRhdGEiOnsiaWQiOjEsImFjY291bnQiOiJtYXp6b2NvbmkiLCJ0aXBvIjoic29jaW9zIn0sImFwcCI6IkFQSSBSRVNUIExBIENPTUFOREEgMjAxOSJ9.jc0IySNYC2yiKwlKeiYyevHKGBfr2j6-H_Hz6b9SPVk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "orden",
+							"value": "suspender",
+							"type": "text"
+						},
+						{
+							"key": "idUsuario",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:80/LaComanda/public/usuario/borrar",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"usuario",
+						"borrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuarios Traer Todos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:80/LaComanda/public/usuario/",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"usuario",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

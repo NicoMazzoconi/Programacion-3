@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "fdd3b79f-ef3e-47ea-a02b-30bb2eaaa832",
+		"name": "Encuesta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Encuesta Alta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cocinero",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "mozo",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "restaurant",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "mesa",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "codigoMesa",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:80/LaComanda/public/encuesta/",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"encuesta",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						},
+						{
+							"key": "",
+							"value": ""
+						},
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

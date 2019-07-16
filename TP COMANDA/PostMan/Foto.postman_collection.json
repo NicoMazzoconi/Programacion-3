@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "fee06384-2dcd-46ea-bd63-5e1a427cb47d",
+		"name": "Foto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mesa Foto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjMzMDE2NDIsImV4cCI6MTU2MzMwNTI0MiwiYXVkIjoiMTk5MTNmZWM4YjI0ZDk1Y2Y1NjE5Y2MwMzdkMTM1YTZlOTUzZWQzYyIsImRhdGEiOnsiaWQiOjEsImFjY291bnQiOiJtYXp6b2NvbmkiLCJ0aXBvIjoic29jaW9zIn0sImFwcCI6IkFQSSBSRVNUIExBIENPTUFOREEgMjAxOSJ9.z18P6dYtlmI2QWRG64mR12dkr7eryM1v63WE8s62U5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imagen",
+							"value": null,
+							"type": "file"
+						},
+						{
+							"key": "codigo",
+							"value": "52m2b",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:80/LaComanda/public/mesa/foto",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"mesa",
+						"foto"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

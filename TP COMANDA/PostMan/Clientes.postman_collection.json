@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "9246dcf2-c101-4275-9637-b17552161e80",
+		"name": "Clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Traer estado pedido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:80/LaComanda/public/cliente/?codigoPedido",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"cliente",
+						""
+					],
+					"query": [
+						{
+							"key": "codigoPedido",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente Alta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "apellido",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:80/LaComanda/public/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

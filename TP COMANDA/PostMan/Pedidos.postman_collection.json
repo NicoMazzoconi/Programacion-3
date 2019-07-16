@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "81655fe2-2423-4330-b84c-3e4e1bf19cf4",
+		"name": "Pedidos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pedidos Alta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjMzMDUxNjgsImV4cCI6MTU2MzMwODc2OCwiYXVkIjoiMTk5MTNmZWM4YjI0ZDk1Y2Y1NjE5Y2MwMzdkMTM1YTZlOTUzZWQzYyIsImRhdGEiOnsiaWQiOjIsImFjY291bnQiOiJtb3pvIiwidGlwbyI6Im1vem9zIn0sImFwcCI6IkFQSSBSRVNUIExBIENPTUFOREEgMjAxOSJ9.S-Aqu0vca_M36FYQtBDJDcSARs4BpcKZOeExNUt0C2E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "cerveceros",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "bartender",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "cocineros",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:80/LaComanda/public/pedido",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido Traer todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:80/LaComanda/public/pedido",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"pedido"
+					]
+				},
+				"description": "Solo su mismo sector"
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido Modificar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idPedido",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tiempoEstimado",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "idMesa",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:80/LaComanda/public/pedido/",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"LaComanda",
+						"public",
+						"pedido",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
