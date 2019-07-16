@@ -11,13 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:80/LaComanda/public/cliente/?codigoPedido",
+					"raw": "http://jannock-river.000webhostapp.com/public/cliente/?codigoPedido",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"cliente",
 						""
@@ -25,7 +26,7 @@
 					"query": [
 						{
 							"key": "codigoPedido",
-							"value": ""
+							"value": null
 						}
 					]
 				}
@@ -59,13 +60,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:80/LaComanda/public/cliente",
+					"raw": "http://jannock-river.000webhostapp.com/public/cliente",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"cliente"
 					]

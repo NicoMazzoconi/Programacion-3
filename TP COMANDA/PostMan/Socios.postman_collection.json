@@ -17,13 +17,14 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:80/LaComanda/public/logs/operacionesPorSector",
+					"raw": "http://jannock-river.000webhostapp.com/public/logs/operacionesPorSector",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"logs",
 						"operacionesPorSector"
@@ -38,13 +39,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:80/LaComanda/public/logs/ingresos",
+					"raw": "http://jannock-river.000webhostapp.com/public/logs/ingresos",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"logs",
 						"ingresos"

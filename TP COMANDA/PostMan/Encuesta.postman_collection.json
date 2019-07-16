@@ -41,30 +41,17 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:80/LaComanda/public/encuesta/",
+					"raw": "http://jannock-river.000webhostapp.com/public/encuesta/",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"encuesta",
 						""
-					],
-					"query": [
-						{
-							"key": "",
-							"value": ""
-						},
-						{
-							"key": "",
-							"value": ""
-						},
-						{
-							"key": "",
-							"value": ""
-						}
 					]
 				}
 			},

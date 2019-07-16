@@ -21,8 +21,8 @@
 					"formdata": [
 						{
 							"key": "imagen",
-							"value": null,
-							"type": "file"
+							"type": "file",
+							"src": []
 						},
 						{
 							"key": "codigo",
@@ -32,13 +32,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:80/LaComanda/public/mesa/foto",
+					"raw": "http://jannock-river.000webhostapp.com/public/mesa/foto",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"mesa",
 						"foto"

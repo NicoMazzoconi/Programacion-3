@@ -26,13 +26,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:80/LaComanda/public/login",
+					"raw": "http://jannock-river.000webhostapp.com/public/login",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"login"
 					]

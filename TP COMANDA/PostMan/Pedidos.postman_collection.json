@@ -42,13 +42,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:80/LaComanda/public/pedido",
+					"raw": "http://jannock-river.000webhostapp.com/public/pedido",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"pedido"
 					]
@@ -62,13 +63,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:80/LaComanda/public/pedido",
+					"raw": "http://jannock-river.000webhostapp.com/public/pedido",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"pedido"
 					]
@@ -113,13 +115,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:80/LaComanda/public/pedido/",
+					"raw": "http://jannock-river.000webhostapp.com/public/pedido/",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"pedido",
 						""

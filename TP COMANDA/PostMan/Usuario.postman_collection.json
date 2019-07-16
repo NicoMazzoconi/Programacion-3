@@ -31,13 +31,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:80/LaComanda/public/usuario/",
+					"raw": "http://jannock-river.000webhostapp.com/public/usuario/",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"usuario",
 						""
@@ -74,13 +75,14 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:80/LaComanda/public/usuario/borrar",
+					"raw": "http://jannock-river.000webhostapp.com/public/usuario/borrar",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"usuario",
 						"borrar"
@@ -101,13 +103,14 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:80/LaComanda/public/usuario/",
+					"raw": "http://jannock-river.000webhostapp.com/public/usuario/",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"jannock-river",
+						"000webhostapp",
+						"com"
 					],
-					"port": "80",
 					"path": [
-						"LaComanda",
 						"public",
 						"usuario",
 						""
